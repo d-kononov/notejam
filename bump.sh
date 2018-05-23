@@ -17,7 +17,7 @@ if [ "$#" -ne 1 ]; then
   exit 1
 fi
 
-version_file=$2
+version_file=$1
 
 if [ -z $(grep -Eo "[0-9]+\.[0-9]+\.[0-9]+" $version_file) ]; then
   echo "did not find semantic version in $version_file"
