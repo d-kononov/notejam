@@ -46,9 +46,8 @@ jobs:
           keys:
           - v1-dependencies-{{ checksum "Gemfile.lock" }}
       - setup_remote_docker
-      - run: ./bump.sh version.txt
       - run: docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-      - run: docker build -t freeman1988/toptal_app:$(grep -Eo "[0-9]+\.[0-9]+\.[0-9]+" ./version.txt) .
+      - run: docker build -t freeman1988/toptal_app:$CIRCLE_SHA1 .
       - run: docker push freeman1988/toptal_app
 
       - run: echo $GCLOUD_SERVICE_KEY > ${HOME}/gcloud-service-key.json
@@ -66,7 +65,7 @@ jobs:
 #          name: Deploy App
 #          command:  VERSION=$(grep -Eo "[0-9]+\.[0-9]+\.[0-9]+" \
 #                    SERVICE_URL="https://staging-worker.iron.io" AUTO_DEPLOY=1 STAGING=1 \
-#                    kubectl patch deployment notejam -n notejam -p '{"spec":{"template":{"spec":{"containers":[{"name":"notejam","image":"freeman1988/toptal_app:'"$VERSION"'"}]}}}}'
+#                    kubectl patch deployment notejam -n notejam -p '{"spec":{"template":{"spec":{"containers":[{"name":"notejam","image":"freeman1988/toptal_app:'"$CIRCLE_SHA1"'"}]}}}}'
 
 workflows:
   version: 2
