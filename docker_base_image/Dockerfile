@@ -18,9 +18,6 @@ ONBUILD RUN bundle install --without development test
 ONBUILD ADD . /app
 ONBUILD RUN RAILS_ENV=production bundle exec rake assets:precompile
 
-#ADD nginx-sites.conf /etc/nginx/sites-enabled/default
-#ADD nginx.conf /etc/nginx/nginx.conf
-
 ADD unicorn.rb /app/config/unicorn.rb
 ADD Procfile /app/Procfile
 
