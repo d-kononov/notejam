@@ -56,5 +56,8 @@ gem 'health_check'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'scout_apm'
+# Profiling
 gem 'meta_request'
+
+# Session cache
+gem 'redis-session-store'

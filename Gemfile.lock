@@ -117,6 +117,10 @@ GEM
     raindrops (0.19.0)
     rake (12.3.1)
     rdoc (6.0.4)
+    redis (4.0.1)
+    redis-session-store (0.10.0)
+      actionpack (>= 3, < 6)
+      redis (>= 3, < 5)
     remote_syslog_logger (1.0.3)
       syslog_protocol
     sass (3.2.19)
@@ -125,7 +129,6 @@ GEM
       sass (~> 3.2.2)
       sprockets (~> 2.8, < 3.0)
       sprockets-rails (~> 2.0)
-    scout_apm (2.4.11)
     sdoc (1.0.0)
       rdoc (>= 5.0)
     sentry-raven (2.7.3)
@@ -168,9 +171,9 @@ DEPENDENCIES
   meta_request
   mysql2 (~> 0.3.18)
   rails (= 4.2.8)
+  redis-session-store
   remote_syslog_logger
   sass-rails (~> 4.0.5)
-  scout_apm
   sdoc
   sentry-raven
   sqlite3
