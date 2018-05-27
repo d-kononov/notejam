@@ -24,7 +24,7 @@ module Notejam
     config.active_record.raise_in_transactional_callbacks = true
 
     Raven.configure do |config|
-      config.dsn = 'https://2fd64469afa2498e94aaa0fa2bf09674:d0f982ae33b94175bc7e32c52e2cff6b@sentry.io/1210329'
+      config.dsn = "https://#{SENTRY_USERNAME}:#{SENTRY_PASSWORD}@sentry.io/1210329"
       config.sanitize_fields = Rails.application.config.filter_parameters.map(&:to_s)
     end
 
