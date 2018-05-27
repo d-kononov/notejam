@@ -55,3 +55,5 @@ gem 'health_check'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'scout_apm'
