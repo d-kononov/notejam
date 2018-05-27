@@ -60,4 +60,4 @@ gem 'health_check'
 gem 'meta_request'
 
 # Session cache
-gem 'redis-session-store'
+gem 'redis-rails'

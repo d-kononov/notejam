@@ -23,6 +23,8 @@ module Notejam
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
+    config.cache_store = :redis_store, "redis://#{ENV['REDIS_HOST']}:#{ENV['REDIS_PORT']}/0/cache", { expires_in: 90.minutes }
+
     Raven.configure do |config|
       config.dsn = "https://#{ENV['SENTRY_USERNAME']}:#{ENV['SENTRY_PASSWORD']}@sentry.io/1210329"
       config.sanitize_fields = Rails.application.config.filter_parameters.map(&:to_s)
