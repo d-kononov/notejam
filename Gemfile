@@ -57,3 +57,4 @@ gem 'health_check'
 # gem 'debugger', group: [:development, :test]
 
 gem 'scout_apm'
+gem 'meta_request'
